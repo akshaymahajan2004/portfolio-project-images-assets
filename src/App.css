@@ -1,0 +1,188 @@
+/* --- Variables for Dark Theme --- */
+:root {
+  --bg-dark: #0f172a;       /* Dark Blue Background */
+  --card-bg: #1e293b;       /* Card Background */
+  --text-primary: #f1f5f9;  /* White Text */
+  --text-secondary: #94a3b8;/* Grey Text */
+  --accent-color: #3b82f6;  /* Bright Blue */
+  --accent-glow: rgba(59, 130, 246, 0.5);
+  --success-color: #10b981; /* Green */
+}
+
+/* --- Base Setup --- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+.app-container {
+  min-height: 100vh;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1400px; /* Wide container */
+}
+
+/* --- Header Styling --- */
+.main-header {
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #334155;
+  padding-bottom: 1.5rem;
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.icon-main {
+  color: var(--accent-color);
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  background: linear-gradient(to right, #fff, #94a3b8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+code {
+  background: #334155;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  color: #fbbf24;
+  font-family: monospace;
+}
+
+/* --- THE GRID LAYOUT (Responsive) --- */
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* Auto-fill: Fit as many 280px cards as possible, then wrap to next line */
+  /* grid-template-rows: repeat(auto-fill, minmax(280px, 1fr)); */
+  gap: 2rem;
+  padding-bottom: 4rem;
+}
+
+/* --- Card Styling --- */
+.asset-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #334155;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.asset-card:hover {
+  transform: translateY(-5px); /* Lift up effect */
+  border-color: var(--accent-color);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 
+              0 0 20px -5px var(--accent-glow);
+}
+
+/* --- Image Area --- */
+.image-wrapper {
+  height: 200px;
+  background: #000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  opacity: 0.9;
+}
+
+.asset-card:hover .image-wrapper img {
+  transform: scale(1.1); /* Slight zoom on hover */
+  opacity: 1;
+}
+
+/* Error Text (Hidden unless error) */
+.error-msg {
+  display: none;
+  color: #ef4444;
+  font-weight: bold;
+  z-index: 10;
+}
+.show-error {
+  display: block;
+}
+
+/* --- Card Footer & Button --- */
+.card-footer {
+  padding: 1.25rem;
+  background: rgba(30, 41, 59, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.filename {
+  font-family: monospace;
+  color: var(--text-secondary);
+  margin: 0 0 1rem 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9rem;
+}
+
+.copy-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.copy-btn:hover {
+  background-color: #2563eb;
+}
+
+.copy-btn.copied {
+  background-color: var(--success-color); /* Turns green when copied */
+}
+
+/* Empty State Box */
+.empty-state {
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  border: 2px dashed #334155;
+  border-radius: 1rem;
+}
