@@ -6,6 +6,7 @@ import "./App.css";
 // Make sure these files exist inside your 'public' folder.
 const myImages = [
   "portfolio-project.png",
+  "login-signup.png"
   // Add more filenames here...
 ];
 
