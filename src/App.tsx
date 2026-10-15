@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { Copy, Check, Image as ImageIcon } from "lucide-react";
-import "./App.css"; 
+import "./App.css";
 
 // --- 1. ADD YOUR IMAGE FILENAMES HERE ---
 // Make sure these files exist inside your 'public' folder.
 const myImages = [
   "portfolio-project.png",
   "login-signup.png",
-  "Estate-x.png"
+  "Estate-x.png",
+  "AI-resume-analyzer.png",
+  "Buildify.png"
   // Add more filenames here...
 ];
 
@@ -30,7 +32,7 @@ function App() {
   return (
     <div className="app-container">
       <div className="content-wrapper">
-        
+
         {/* Header */}
         <header className="main-header">
           <div className="title-group">
@@ -46,15 +48,15 @@ function App() {
         <div className="gallery-grid">
           {myImages.map((img, index) => (
             <div key={index} className="asset-card">
-              
+
               {/* Image Preview Area */}
               <div className="image-wrapper">
-                <img 
-                  src={`/${img}`} 
-                  alt={img} 
+                <img
+                  src={`/${img}`}
+                  alt={img}
                   onError={(e) => {
                     // Hides image and shows error text if file is missing
-                    (e.target as HTMLImageElement).style.display = 'none'; 
+                    (e.target as HTMLImageElement).style.display = 'none';
                     (e.target as HTMLImageElement).nextElementSibling?.classList.add('show-error');
                   }}
                 />
